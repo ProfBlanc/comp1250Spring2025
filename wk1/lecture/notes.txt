@@ -1,0 +1,15 @@
+source code     (what you write)
+
+byte code   (intermediate translation of source code to machine code)
+
+machine language (what platform understands)
+
+Guiddo Van Ralsom*
+
+
+PEP8
+    Python
+    Enhancement
+    Proposal
+
+        Standards
