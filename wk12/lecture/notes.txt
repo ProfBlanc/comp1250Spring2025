@@ -1,0 +1,23 @@
+Why create class?
+    When you want to create a thing that
+        has attributes/properties (values)
+            declared as variables
+        has actions
+            declared as methods
+
+Classes have special functions
+    start and end with double underscore
+        __NAME__
+            where NAME is text
+
+
+class definition
+    blueprint, template, model to be followed to reproduce something
+
+an instance of a class
+    aka object
+    the result of the creation of the class
+        CLASS_NAME()
+
+what is self?
+    a keyword that refers to the INSTANCE of the class
