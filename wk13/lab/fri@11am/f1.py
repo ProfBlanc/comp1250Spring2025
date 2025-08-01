@@ -19,6 +19,7 @@ Person
 
 """
 import random
+import sys
 
 
 class Person:
@@ -60,13 +61,15 @@ class Person:
             initials += name[0].upper() + "."
 
         return initials[:-1]
-me = Person("Prof Blanc", 20)
-print(me.get_initials())
-me.age
-me.age = 21
-# print(me._Person__age)
-teen1 = Person.create_teen("Hungry Teen")
-teen2 = Person.create_teen()
-print(teen1)
-print(Person.get_age_categories())
-
+try:
+    me = Person("Prof Blanc", 20)
+    print(me.get_initials())
+    me.age
+    me.age = 21
+    # print(me._Person__age)
+    teen1 = Person.create_teen("Hungry Teen")
+    teen2 = Person.create_teen()
+    print(teen1)
+    print(Person.get_age_categories())
+except Exception as e:
+    print(e, file=sys.stderr)
