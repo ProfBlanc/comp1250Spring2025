@@ -1,0 +1,15 @@
+Create a class named
+
+DiceGame:
+    have two Players:
+        Player has a name and Dice
+        Each player must play with the same amount of dices
+        Each player's dice sides should be equal
+        if not, raise exception
+    to string summarizes the player name and number of dices they are playing with
+
+    method to play
+        each player rolls a dice 3 times
+            display to screen the result of each roll
+        at the end of each player's 3 rolls, determine which player wins by adding the total of all 3 rolls
+        display a winning player or draw
