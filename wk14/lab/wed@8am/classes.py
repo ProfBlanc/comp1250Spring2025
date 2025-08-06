@@ -36,3 +36,15 @@ class Dice:
                 roll_2 = random.randint(1, self.__num_sides_die_2)
             return [roll_1, roll_2] if roll_2 is not None else [roll_1]
         else: return ValueError("Can only roll 1 or 2 dices")
+
+class Player:
+    def __init__(self, name, dice_1_num_sides, dice_2_num_sides):
+        self.name = name
+        self.dice = Dice(dice_1_num_sides, dice_2_num_sides)
+    @property
+    def name(self): return self.__name
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str) and len(value) >= 3:
+            self.__name = value
+        else: raise ValueError("Invalid Player Name")
