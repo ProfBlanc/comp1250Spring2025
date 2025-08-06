@@ -48,3 +48,45 @@ class Player:
         if isinstance(value, str) and len(value) >= 3:
             self.__name = value
         else: raise ValueError("Invalid Player Name")
+    def __str__(self): return f"Player {self.__name} is rolling with {self.dice}"
+
+
+class DiceGame:
+    def __init__(self, player1, player2):
+        self.player1 = player1
+        self.player2 = player2
+
+    def __validate(self):
+        return self.__player1.dice.num_sides_die_1 == self.player2.dice.num_sides_die_1 \
+            and self.__player1.dice.num_sides_die_2 == self.player2.dice.num_sides_die_2
+    @property
+    def player1(self): return self.__player1
+    @player1.setter
+    def player1(self, value):
+        if not isinstance(value, Player):
+            raise ValueError("Please pass a player object")
+        self.__player1 = value
+    @property
+    def player2(self): return self.__player2
+    @player2.setter
+    def player2(self, value):
+        if not isinstance(value, Player):
+            raise ValueError("Please pass a player object")
+        self.__player2 = value
+    def play(self):
+        if not self.__validate(): raise ValueError("Both players are not playing with the same dice")
+
+        p1_total = p2_total = 0
+        for i in range(1, 4):
+            p1_roll = self.player1.dice.roll()
+            p2_roll = self.player2.dice.roll()
+
+            p1_total += sum(p1_roll)
+            p2_total += sum(p2_roll)
+            print(f"Player1: {self.player1.name} rolled: {p1_roll}. Player 1 has a total roll of {p1_total}")
+            print(f"Player2: {self.player2.name} rolled: {p2_roll}. Player 1 has a total roll of {p2_total}")
+
+        if p1_total == p2_total:
+            print("The game resulted in a draw")
+        else:
+            print(self.player1.name if p1_total > p2_total else self.player2.name + " has won" )
